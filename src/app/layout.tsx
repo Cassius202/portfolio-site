@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-// @ts-expect-error: allow side-effect CSS impo rt (add a '*.css' declaration file for stricter typing)
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-provider";
 import ToastProvider from "@/components/ToastProvider";
