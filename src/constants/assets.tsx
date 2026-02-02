@@ -18,6 +18,7 @@ import foodieImg from '../../public/images/projects/food-site_.png';
 import financeDashboardImg from '../../public/images/projects/dashboardNext.png';
 import estateImg from '../../public/images/projects/flash_estate.png';
 import furnitureSiteImg from '../../public/images/projects/furniture-site_.png';
+import agencyAIImg from '../../public/images/projects/agency-ai-img.png';
 
 // Exports
 export const navLinks: string[] = ['Home', 'Packages', 'FAQ', 'Reviews'];
@@ -123,6 +124,15 @@ export const projects: Project[] = [
     icons: [ReactLogo, TypeScript, TailwindCSS],
     image: furnitureSiteImg,
     description: "An elegant e-commerce platform for modern furniture, featuring seamless browsing and a sophisticated shopping experience"
+  },
+  {
+    id: "5",
+    name: "Agency AI site",
+    url: "https://cassius202.github.io/Agency-AI/",
+    stack: "React / Javascript",
+    icons: [ReactLogo, JavaScript, TailwindCSS],
+    image: agencyAIImg,
+    description: "Creating meaningful connections and turning big ideas into interactive digital experiences"
   }
 ];
 

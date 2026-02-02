@@ -178,7 +178,7 @@
     overflow: hidden;
   }
   .slider {
-    animation: carouselAnimation 15s linear infinite;
+    animation: carouselAnimation 25s linear infinite;
   }
  @media (hover:hover) {
     .slider-container:hover .slider{
