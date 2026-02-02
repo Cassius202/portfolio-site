@@ -1,26 +1,134 @@
 @import "tailwindcss";
-
+@variant dark (&:is(.dark *));
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-zinc-50);
+  --foreground: var(--color-zinc-950);
 }
 
-@theme inline {
+.dark {
+  --background: var(--color-zinc-950);
+  --foreground: #f4f4f4;
+}
+
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+ --color-primary: var(--color-blue-600);
+ --color-accent: #8828e8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  /* Chrome, Edge, and Safari */
+  ::-webkit-scrollbar {
+    width: 8px; /* This sets the width */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Makes the track invisible */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-700/50 rounded-full; /* Subtle dark color */
+    border: 2px solid transparent; /* Creates "padding" around the thumb */
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-600; /* Brightens slightly on hover */
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin; /* Options: auto, thin, none */
+    scrollbar-color: theme('colors.zinc.700') transparent;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  button {
+    @apply transition-transform hover:scale-[1.03] rounded cursor-pointer
+  }
+    .icon_hover {
+    @apply p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer transition-colors;
+
+ }
+ .grid-item {
+  @apply bg-slate-50 w-full min-h-30 dark:bg-slate-950 rounded-lg p-3
+ }
+ .low-contrast {
+   @apply text-gray-600 dark:text-gray-400;
+ }
+ h1 {
+  @apply font-semibold text-center
+ }
+ .tooltip {
+  @apply absolute cursor-pointer left-1/2 -translate-x-1/2 ml-2 -bottom-8 bg-slate-300 text-slate-950 dark:bg-slate-800 dark:text-white text-xs rounded-md px-2 py-1 whitespace-nowrap opacity-0 pointer-events-none transition-opacity group-hover:opacity-100;
+ }
+ .subtitle {
+  @apply text-gray-700 font-[600] text-center dark:text-gray-300;
+ }
+}
+
+.box:hover {
+  border: 1px solid #8828e8;
+  box-shadow: 2px 2px 28px #8828e85f;
+}
+.box.orange:hover {
+  border: 1px solid #ffc70e;
+  box-shadow: 2px 2px 28px rgba(251, 191, 62, 0.133);
+}
+.moving-dot {
+  animation: travel 4s linear infinite alternate;
+  filter: blur(1px);
+}
+.moving-dot.two {
+  animation: travel 5s linear infinite reverse alternate;
+  animation-delay: 2s;
+  filter: blur(1px);
+}
+
+@media (max-width: 1024px) {
+  .moving-dot {
+    animation: travel_x 4s linear infinite alternate;
+    top: 50%; translate: 0 -50%; 
+  }
+}
+
+@keyframes travel {
+  0% {
+    top: 12%;
+    background: var(--color-blue-500);
+  }
+  50% {
+    top: 50%;
+    background: var(--color-blue-500);
+  }
+  51% {
+    top: 51%;
+    background: var(--color-amber-500);
+  }
+  100% {
+    top: 88%;
+    background: var(--color-amber-500);
+  }
+}
+
+@keyframes travel_x {
+  0% {
+    left: 10%;
+    background: var(--color-blue-500);
+  }
+  50% {
+    left: 50%;
+    background: var(--color-blue-500);
+  }
+  51% {
+    left: 51%;
+    background: var(--color-amber-500);
+  }
+  100% {
+    left: 85%;
+    background: var(--color-amber-500);
+  }
 }
