@@ -11,7 +11,7 @@ const ToastProvider = () => {
       position="top-center"
       reverseOrder={false}
       toastOptions={{
-        duration: 4000,
+        duration: 2800,
         style: {
           background: theme === 'dark' ? '#18181b' : '#ffffff',
           color: theme === 'dark' ? '#ffffff' : '#18181b',

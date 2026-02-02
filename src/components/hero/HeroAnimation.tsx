@@ -14,9 +14,9 @@ const HeroAnimation = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: .6 }}
       viewport={{once: true}}
-      className='flex flex-col w-full items-center overflow-hidden'
+      className='flex flex-col h-full w-full items-center lg:scale-125'
     >
-      <div className="flex items-center max-lg:mt-10 relative justify-center lg:flex-col lg:gap-y-8 py-7 w-full max-w-fit mx-auto">
+      <div className="flex max-sm:scale-80 transition-transform items-center max-lg:mt-10 relative justify-center lg:flex-col lg:gap-y-8 py-7 w-full max-w-fit mx-auto">
         
         {/* Moving Dots */}
         <div className="moving-dot absolute size-1.5 bg-blue-500 rounded-full top-[13%] left-1/2 -translate-x-1/2" />

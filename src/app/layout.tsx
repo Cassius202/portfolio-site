@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+// @ts-expect-error: allow side-effect CSS impo rt (add a '*.css' declaration file for stricter typing)
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-provider";
 import ToastProvider from "@/components/ToastProvider";
+import ClientLoader from "@/components/ClientLoader";
+
 
 const interSans = Inter({
   variable: "--font-inter", // CSS variable name
@@ -24,12 +27,13 @@ export default function RootLayout({
       <body className={`${interSans.variable} antialiased w-screen overflow-x-hidden`}>
         <ThemeProvider
         attribute={"class"}
-        defaultTheme="system"
-        enableSystem
+        defaultTheme="dark"
         disableTransitionOnChange
         >
             <ToastProvider />
-            {children}
+            <ClientLoader>
+              {children}
+            </ClientLoader>
         </ThemeProvider>
       </body>
     </html>

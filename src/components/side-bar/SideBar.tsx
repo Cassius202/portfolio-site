@@ -8,8 +8,7 @@ import { cn } from '@/utils/cn'
 import ThemeToggle from '@/contexts/use-theme'
 import { useTheme } from 'next-themes'
 import { navLinks } from '@/constants/assets'
-import { useRef } from 'react'
-import { useMediaQuery } from '@uidotdev/usehooks'
+import { useEffect, useRef, useState } from 'react'
 
 const SideBar = () => {
   const { theme } = useTheme()
@@ -17,7 +16,17 @@ const SideBar = () => {
   const sidebarRef = useRef<HTMLElement>(null)
   
   // Fix: Use useMediaQuery hook properly
-  const sm = useMediaQuery('(max-width: 640px)')
+  const [sm, setSm] = useState(false);
+
+useEffect(() => {
+    const mediaQuery: MediaQueryList = window.matchMedia('(max-width: 640px)');
+    setSm(mediaQuery.matches);
+
+    const handleMediaQueryChange = (e: MediaQueryListEvent): void => setSm(e.matches);
+    
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
+  }, []);
 
   return (
     <AnimatePresence>

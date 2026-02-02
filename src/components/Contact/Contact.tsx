@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { Send, User, Mail, MessageSquare } from "lucide-react";
 import toast from "react-hot-toast";
+import { motion } from "motion/react";
 
 // 1. Define the type for your form
 interface ContactFormData {
@@ -38,7 +39,6 @@ const Contact = () => {
     const form = event.currentTarget;
     const submissionData = new FormData(form);
     
-    // Use NEXT_PUBLIC prefix for client-side env variables in Next.js
     submissionData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "");
 
     try {
@@ -61,27 +61,47 @@ const Contact = () => {
     }
   };
 
-  if (!mounted) return null; // Prevents hydration flicker
+  if (!mounted) return null;
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center p-6 mb-8">
-      {/* Note: Toaster should be in layout.tsx, but I've kept logic clean here */}
-      
-      <div className="w-full max-w-2xl bg-white dark:bg-zinc-900 shadow-xl rounded-2xl p-8 border border-slate-200 dark:border-zinc-800">
-        <h2 className="text-3xl font-bold text-center text-slate-950 dark:text-white font-myriad">
+    <section id="contact" className="min-h-screen flex items-center justify-center p-6 mb-8 mt-10">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full max-w-2xl bg-white dark:bg-zinc-900 dark:lg:bg-transparent rounded-2xl p-8 border border-slate-200 dark:border-zinc-800 dark:lg:border-none"
+      >
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="title"
+        >
           Get In Touch
-        </h2>
-        <p className="text-center text-zinc-500 dark:text-zinc-400 mb-7 mt-2">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="title-string"
+        >
           Let&apos;s collaborate on your next project
-        </p>
+        </motion.p>
 
         <form onSubmit={onSubmit} className="space-y-6">
           {/* Name Field */}
-          <div className="flex flex-col gap-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col gap-2"
+          >
             <label className="text-sm font-semibold flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
               <User size={16} className="text-blue-500" /> Name
             </label>
-            <input
+            <motion.input
+              whileFocus={{ scale: 1.01 }}
+              transition={{ duration: 0.2 }}
               type="text"
               name="name"
               required
@@ -90,14 +110,21 @@ const Contact = () => {
               placeholder="What is your name?"
               className="w-full px-4 py-2.5 rounded-lg border bg-transparent border-slate-300 dark:border-zinc-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
             />
-          </div>
+          </motion.div>
 
           {/* Email Field */}
-          <div className="flex flex-col gap-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-col gap-2"
+          >
             <label className="text-sm font-semibold flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
               <Mail size={16} className="text-blue-500" /> Email
             </label>
-            <input
+            <motion.input
+              whileFocus={{ scale: 1.01 }}
+              transition={{ duration: 0.2 }}
               type="email"
               name="email"
               required
@@ -106,14 +133,21 @@ const Contact = () => {
               placeholder="hello@email.com"
               className="w-full px-4 py-2.5 rounded-lg border bg-transparent border-slate-300 dark:border-zinc-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
             />
-          </div>
+          </motion.div>
 
           {/* Message Field */}
-          <div className="flex flex-col gap-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex flex-col gap-2"
+          >
             <label className="text-sm font-semibold flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
               <MessageSquare size={16} className="text-blue-500" /> Message
             </label>
-            <textarea
+            <motion.textarea
+              whileFocus={{ scale: 1.01 }}
+              transition={{ duration: 0.2 }}
               name="message"
               required
               rows={5}
@@ -122,18 +156,23 @@ const Contact = () => {
               placeholder="Tell me about your project ideas..."
               className="w-full px-4 py-2.5 rounded-lg border bg-transparent border-slate-300 dark:border-zinc-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white resize-none"
             />
-          </div>
+          </motion.div>
 
           {/* Submit Button */}
-          <button
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             type="submit"
-            className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all active:scale-95 w-full sm:w-max"
+            className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all w-full sm:w-max"
           >
-            <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <Send size={18} className="group-hover:text-amber-400 transition-color" />
             Send Message
-          </button>
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 };
