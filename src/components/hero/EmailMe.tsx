@@ -18,7 +18,7 @@ const EmailMe = () => {
   }
 
   return (
-    <div className='space-x-2 flex mt-6 max-lg:justify-center group'>
+    <div className='space-x-2 flex mt-6 max-lg:justify-center group max-sm:w-full'>
       <div className="border border-gray-500 p-2.5 grid place-content-center w-max low-contrast rounded-lg relative cursor-default" onClick={() => {
         handleCopy();
       }}>

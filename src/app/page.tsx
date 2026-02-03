@@ -26,7 +26,7 @@ const Questions = dynamic(() => import("@/components/question/Questions"), {
 export default function Home() {
 
   return (
-    <div className="flex flex-col min-h-screen w-screen bg-zinc-50 font-sans dark:bg-zinc-950">
+    <div className="flex overflow-x-hidden flex-col min-h-screen w-screen bg-zinc-50 font-sans dark:bg-zinc-950">
       <Header />
       <SideBar />
       <Hero />

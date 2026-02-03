@@ -3,7 +3,7 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import { useSidebarStore } from '@/store/useSidebarStore'
-import { ChevronsLeft } from 'lucide-react'
+import { ChevronsLeft, SidebarClose } from 'lucide-react'
 import { cn } from '@/utils/cn'
 import ThemeToggle from '@/contexts/use-theme'
 import { useTheme } from 'next-themes'
@@ -36,7 +36,7 @@ useEffect(() => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "fixed inset-0 z-50 backdrop-blur-[3px] bg-black/20 transition-[width_colors]"
+            "fixed inset-0 z-50 w-screen max-w-screen backdrop-blur-[3px] bg-black/20 transition-[width_colors]"
           )}
           onClick={() => close()}
         >
@@ -48,15 +48,16 @@ useEffect(() => {
             ref={sidebarRef}
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside sidebar
             className={cn(
-              "dark:bg-zinc-900 bg-zinc-100 fixed dark:dark-gradient right-0 transition-colors duration-400 top-0 rounded-l-2xl z-50 h-screen",
+              "dark:bg-zinc-900 py-8 bg-zinc-100 fixed dark:dark-gradient right-0 transition-colors duration-400 pb-20 top-0 rounded-l-2xl z-50 h-screen",
               sm ? "w-68" : "w-85" // Use Tailwind classes or explicit values
             )}
           >
             <span 
-              className="absolute top-2 right-6 btn-ghost rotate-180 dark:text-amber-200 cursor-pointer"
+              className="absolute top-4 right-6 btn-ghost dark:text-amber-200 group cursor-pointer"
               onClick={() => close()}
             >
-              <ChevronsLeft />
+              <SidebarClose className='rotate-180'/>
+              <span className='absolute whitespace-nowrap text-xs p-1 px-2 bg-slate-300 rounded-lg right-full top-1/2 -translate-y-1/2 text-black dark:text-white  dark:bg-blue-950/40 -translate-x-2 origin-right scale-0 transition-transform group-hover:scale-100 duration-400'>Close sidebar</span>
             </span>
             
             <nav className={cn("pt-16 h-full flex flex-col pb-8", sm ? 'px-6' : 'px-10')}>

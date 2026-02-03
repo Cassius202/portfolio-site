@@ -4,7 +4,7 @@ import Image from "next/image"
 
 const TechStack = () => {
   return (
-    <div className="my-20 flex flex-col gap-8 items-center">
+    <div id="about" className="my-20 flex flex-col gap-8 items-center">
       <div className="px-5 sm:px-10 md:px-18 lg:px-30">
         <h1 className="title">
           Build Tools

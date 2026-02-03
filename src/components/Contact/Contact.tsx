@@ -64,12 +64,12 @@ const Contact = () => {
   if (!mounted) return null;
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center p-6 mb-8 mt-10">
+    <section id="contact" className="max-sm:px-0 min-h-screen flex items-center justify-center p-6 mb-8 mt-10">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-2xl bg-white dark:bg-zinc-900 dark:lg:bg-transparent rounded-2xl p-8 border border-slate-200 dark:border-zinc-800 dark:lg:border-none"
+        className="w-full max-sm:border-0 max-w-2xl bg-white dark:bg-zinc-900 dark:lg:bg-transparent rounded-2xl p-8 border border-slate-200 dark:border-zinc-800 dark:lg:border-none"
       >
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

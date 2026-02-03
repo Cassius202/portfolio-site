@@ -21,7 +21,7 @@ import furnitureSiteImg from '../../public/images/projects/furniture-site_.png';
 import agencyAIImg from '../../public/images/projects/agency-ai-img.png';
 
 // Exports
-export const navLinks: string[] = ['Home', 'Packages', 'FAQ', 'Reviews'];
+export const navLinks: string[] = ['Home', 'About', 'FAQ', 'Projects'];
 
 export const phoneNumber = '+234 907 557 5221';
 

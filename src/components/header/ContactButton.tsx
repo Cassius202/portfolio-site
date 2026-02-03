@@ -1,11 +1,13 @@
-
+'use client'
 const ContactButton = () => {
   return (
-    <a className="block" href="#contact">
-      <button className="bg-primary text-white py-2 px-4 rounded-lg">
+      <button className="bg-primary max-sm:hidden text-white py-1.5 px-3 rounded-lg" 
+      onClick={() => {
+        window.location.href="#contact"
+      }}
+      >
       Contact Me
     </button>
-    </a>
   );
 };
 
