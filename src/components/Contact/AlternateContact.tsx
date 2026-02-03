@@ -1,13 +1,15 @@
 'use client';
 
-import { Copy, Phone, Video } from "lucide-react";
+import { Copy, Video } from "lucide-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp, faTiktok, faFacebookMessenger, faDiscord, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { phoneNumber, instagram_username, discord_username } from "@/constants/assets";
+import { faWhatsapp, faTiktok, faFacebookMessenger, faDiscord, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { instagram_username, discord_username } from "@/constants/assets";
 import { toast } from "react-hot-toast";
 import { PopupModal } from 'react-calendly';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+
+const linkedInLink = "https://www.linkedin.com/in/cassius-samuel-ejekwu-b585b7320/";
 
 const AlternateContact = () => {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
@@ -16,8 +18,8 @@ const AlternateContact = () => {
     window.open('https://wa.me/2349075575221', '_blank', 'noopener,noreferrer');
   }
 
-  const handlePhoneClick = () => {
-    window.location.href = `tel:${phoneNumber}`;
+  const handleLinkedInClick = () => {
+    window.open(linkedInLink, '_blank', 'noopener,noreferrer');
   }
 
   const handleTikTokClick = () => {
@@ -44,11 +46,6 @@ const AlternateContact = () => {
     e.stopPropagation();
     
     switch (type) {
-      case 'phone':
-        navigator.clipboard.writeText(phoneNumber);
-        toast.dismissAll();
-        toast.success('Phone number copied to clipboard!');
-        break;
       case 'instagram':
         navigator.clipboard.writeText(instagram_username);
         toast.dismissAll();
@@ -119,10 +116,10 @@ const AlternateContact = () => {
           </div>
         </motion.div>
 
-        {/* Phone */}
+        {/* LinkedIn */}
         <motion.div 
-          className='block cursor-pointer' 
-          onClick={handlePhoneClick}
+          className='group block cursor-pointer' 
+          onClick={handleLinkedInClick}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           whileHover={{ y: -4, scale: 1.02 }}
@@ -130,27 +127,18 @@ const AlternateContact = () => {
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 100, damping: 12, delay: 0.1 }}
         >
-          <span className="whitespace-nowrap text-sm text-blue-600 dark:text-blue-400 mb-1.5 px-2">
-            Phone
+          <span className="whitespace-nowrap text-sm text-blue-700 dark:text-blue-400 mb-1.5 px-2">
+            LinkedIn
           </span>
-          <div className="flex items-center h-12 px-2.5 border border-zinc-200 dark:border-zinc-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <div className="flex items-center h-12 px-2.5 border border-zinc-200 dark:border-zinc-700 rounded-lg group-hover:border-blue-700 dark:group-hover:border-blue-400 transition-colors">
             <motion.div 
-              className="size-5 mr-3 ml-1"
+              className="size-5 mr-3 ml-1 flex items-center justify-center"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
-              <Phone size={18} className="text-blue-600 dark:text-blue-400" />
+              <FontAwesomeIcon icon={faLinkedin} className="text-blue-700 dark:text-blue-400 text-lg" />
             </motion.div>
-            <span className="text-sm">Call me directly</span>
-            <motion.div 
-              className="low-contrast icon_hover ml-auto relative group cursor-pointer"
-              onClick={(e) => handleCopy(e, 'phone')}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Copy size={17} />
-              <span className="tooltip">Copy Phone Number</span>
-            </motion.div>
+            <span className="text-sm">Connect on LinkedIn</span>
           </div>
         </motion.div>
 

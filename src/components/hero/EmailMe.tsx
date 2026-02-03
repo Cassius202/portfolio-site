@@ -22,12 +22,14 @@ const EmailMe = () => {
       <div className="border border-gray-500 p-2.5 grid place-content-center w-max low-contrast rounded-lg relative cursor-default" onClick={() => {
         handleCopy();
       }}>
-        {textToCopy}
-        <span className="text-[0.75rem] absolute left-2.5 top-[120%] dark:text-purple-300 text-purple-500 transition-opacity opacity-0 group-hover:opacity-100 ">
+        <p>
+          cassiusejekwu@<span className="max-sm:hidden inline">gmail.com</span>
+        </p>
+        <span className="text-[0.75rem] whitespace-nowrap absolute left-2.5 top-[120%] dark:text-purple-300 text-purple-500 transition-opacity opacity-0 group-hover:opacity-100 ">
           click the email to copy it
         </span>
       </div>
-      <button className='p-2.5 px-3 text-white bg-green-600 dark:bg-green-500 rounded-lg text-sm lg:text-base' onClick={() => {
+      <button className='p-2.5 shrink-0 px-3 text-white bg-green-600 dark:bg-green-500 rounded-lg text-sm lg:text-base' onClick={() => {
         window.location.href = '#contact'
       }} >
         Message me
