@@ -49,7 +49,7 @@ useEffect(() => {
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside sidebar
             className={cn(
               "dark:bg-zinc-900 py-8 bg-zinc-100 fixed dark:dark-gradient right-0 transition-colors duration-400 pb-20 top-0 rounded-l-2xl z-50 h-screen",
-              sm ? "w-68" : "w-85" // Use Tailwind classes or explicit values
+              sm ? "w-62" : "w-85" // Use Tailwind classes or explicit values
             )}
           >
             <span 
