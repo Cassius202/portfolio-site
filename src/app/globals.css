@@ -26,11 +26,11 @@
     overflow-x: hidden;
   }
 
-  @media (max-width: 576px) and (pointer: coarse) {
+  /* @media (max-width: 576px) and (pointer: coarse) {
     html, body {
       overscroll-behavior-y: none;
     }
-  }
+  } */
 
   /* Chrome, Edge, and Safari */
   ::-webkit-scrollbar {

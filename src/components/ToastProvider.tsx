@@ -23,7 +23,7 @@ const ToastProvider = () => {
             color: theme === 'dark' ? '#ffffff' : '#18181b',
           },
           iconTheme: {
-            primary: '#10b981',
+            primary: '#10b981', 
             secondary: theme === 'dark' ? '#18181b' : '#ffffff',
           },
         },
