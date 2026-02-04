@@ -165,9 +165,9 @@ const Review = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="lg:hidden w-full max-w-full mt-10 px-4"
+          className="lg:hidden w-full max-w-full mt-10 px-4 max-sm:px-0"
         >
-          <div className="bg-linear-to-br from-blue-600 relative z-40 to-blue-700 rounded-2xl p-6 shadow-xl text-white border border-blue-500/20">
+          <div className="bg-linear-to-br from-blue-600 relative z-40 to-blue-700 rounded-2xl p-6 shadow-xl w-full text-white border border-blue-500/20">
             <h3 className="text-xl font-bold mb-3 text-center">Ready to work together?</h3>
             <p className="text-blue-100 text-center text-sm mb-6 leading-relaxed">
               After seeing these reviews, let&apos;s connect and discuss your project!
