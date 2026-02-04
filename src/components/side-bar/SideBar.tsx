@@ -9,16 +9,21 @@ import ThemeToggle from '@/contexts/use-theme'
 import { useTheme } from 'next-themes'
 import { navLinks } from '@/constants/assets'
 import { useEffect, useRef, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 const SideBar = () => {
   const { theme } = useTheme()
   const { isOpen, close } = useSidebarStore();
   const sidebarRef = useRef<HTMLElement>(null)
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === '/';
   
   // Fix: Use useMediaQuery hook properly
   const [sm, setSm] = useState(false);
 
-useEffect(() => {
+  useEffect(() => {
     const mediaQuery: MediaQueryList = window.matchMedia('(max-width: 640px)');
     setSm(mediaQuery.matches);
 
@@ -27,6 +32,33 @@ useEffect(() => {
     mediaQuery.addEventListener('change', handleMediaQueryChange);
     return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
   }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    e.preventDefault();
+    const sectionId = link.toLowerCase();
+    
+    // Close sidebar first
+    close();
+    
+    if (isHomePage) {
+      // Already on home page, just scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300); // Wait for sidebar close animation
+    } else {
+      // Navigate to home page, then scroll
+      router.push('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 400); // Wait for navigation + sidebar close
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -68,9 +100,21 @@ useEffect(() => {
                       key={index}
                       className="group cursor-pointer text-slate-900 text-lg relative bg-slate-300 dark:bg-blue-950/40 hover:bg-blue-200 dark:text-slate-50 dark:hover:bg-slate-600 p-2 px-4 rounded-xl transition-colors"
                     >
-                      <a href={`#${link.toLowerCase()}`} onClick={() => close()}>
-                        {link}
-                      </a>
+                      {link === 'Reviews' ? (
+                        <Link 
+                          href="/reviews" 
+                          onClick={() => close()}
+                        >
+                          {link}
+                        </Link>
+                      ) : (
+                        <Link 
+                          href={`/#${link.toLowerCase()}`}
+                          onClick={(e) => handleClick(e, link)}
+                        >
+                          {link}
+                        </Link>
+                      )}
                     </li>
                   )
                 })}

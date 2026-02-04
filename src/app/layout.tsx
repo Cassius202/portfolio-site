@@ -4,7 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-provider";
 import ToastProvider from "@/components/ToastProvider";
 import ClientLoader from "@/components/ClientLoader";
-
+import Footer from "@/components/Footer";
+import SideBar from "@/components/side-bar/SideBar";
+import Header from "@/components/header/Header";
 
 const interSans = Inter({
   variable: "--font-inter", // CSS variable name
@@ -14,19 +16,21 @@ const interSans = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://cassius-samuel-dev.vercel.app"),
   title: "Cassius Portfolio Website",
-  description: "Let Cassius convert your ideas into a beautiful, high converting website",
+  description:
+    "Let Cassius convert your ideas into a beautiful, high converting website",
   openGraph: {
     title: "Cassius Portfolio Website",
-    description: "Let Cassius convert your ideas into a beautiful, high converting website",
+    description:
+      "Let Cassius convert your ideas into a beautiful, high converting website",
     url: "https://cassius-samuel-dev.vercel.app",
     siteName: "Cassius Portfolio",
     images: [
       {
-        url: "/images/meta-image.jpg", 
+        url: "/images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "Cassius Portfolio Preview",
-      }
+      },
     ],
     locale: "en_US",
     type: "website",
@@ -34,7 +38,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Cassius Portfolio Website",
-    description: "Let Cassius convert your ideas into a beautiful, high-converting website",
+    description:
+      "Let Cassius convert your ideas into a beautiful, high-converting website",
     images: ["/images/meta-image.jpg"],
   },
 };
@@ -46,16 +51,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${interSans.variable} antialiased w-screen overflow-x-hidden`}>
+      <body
+        className={`${interSans.variable} antialiased w-screen overflow-x-hidden`}
+      >
         <ThemeProvider
-        attribute={"class"}
-        defaultTheme="dark"
-        disableTransitionOnChange
+          attribute={"class"}
+          defaultTheme="dark"
+          disableTransitionOnChange
         >
-            <ToastProvider />
-            <ClientLoader>
+          <ToastProvider />
+          <ClientLoader>
+            <Header />
+            <SideBar />
               {children}
-            </ClientLoader>
+            <Footer />
+          </ClientLoader>
         </ThemeProvider>
       </body>
     </html>

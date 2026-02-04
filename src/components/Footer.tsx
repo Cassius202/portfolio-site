@@ -12,7 +12,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full mt-20 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-200/20 dark:bg-zinc-950/50 backdrop-blur-md">
+    <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-200/20 dark:bg-slate-950/50 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col items-center">
         
         {/* Logo & Brand */}
@@ -43,7 +43,7 @@ const Footer = () => {
         </p>
 
         {/* Divider */}
-        <div className="w-full max-w-xs mt-8 h-[1px] bg-gradient-to-r from-transparent via-zinc-300 dark:via-zinc-700 to-transparent" />
+        <div className="w-full max-w-xs mt-8 h-px bg-linear-to-r from-transparent via-zinc-300 dark:via-zinc-700 to-transparent" />
 
         {/* Social Media Grid */}
         <div className="flex gap-8 items-center justify-center mt-8">

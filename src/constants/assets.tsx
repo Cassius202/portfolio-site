@@ -1,4 +1,4 @@
-import { Project, Questions, TechItem } from "./interface";
+import { Project, Questions, ReviewCard, TechItem } from "./interface";
 
 // 1. Import all SVG assets
 import AdobeIllustrator from "../../public/icons/Adobe Illustrator.svg";
@@ -13,6 +13,20 @@ import FastAPI from "../../public/icons/FastAPI.svg";
 import JavaScript from "../../public/icons/JavaScript.svg";
 import PostGres from "../../public/icons/PostgresSQL.svg";
 
+// review images
+import reviewImg1 from "../../public/reviewImages/review_img1.jpg";
+import reviewImg2 from "../../public/reviewImages/review_img2.jpg";
+import reviewImg4 from "../../public/reviewImages/review_img4.jpg";
+import reviewImg5 from "../../public/reviewImages/review_img5.jpg";
+import reviewImg6 from "../../public/reviewImages/review_img6.jpg";
+import reviewImg8 from "../../public/reviewImages/review_img8.jpg";
+
+
+/*review names: img8 Vikram Shah
+img5 is an australian woman
+img4 Erik Frel
+*/
+
 // Project images
 import foodieImg from '../../public/images/projects/food-site_.png';
 import financeDashboardImg from '../../public/images/projects/dashboardNext.png';
@@ -21,7 +35,7 @@ import furnitureSiteImg from '../../public/images/projects/furniture-site_.png';
 import agencyAIImg from '../../public/images/projects/agency-ai-img.png';
 
 // Exports
-export const navLinks: string[] = ['Home', 'About', 'FAQ', 'Projects'];
+export const navLinks: string[] = ['Home', 'Reviews', 'FAQ', 'Projects'];
 
 export const instagram_username: string = 'cassiussamuel.cezar';
 
@@ -182,5 +196,102 @@ export const packages = [
       "Customer accounts",
       "90-day support"
     ]
+  }
+];
+
+export const Reviews: ReviewCard[] = [
+  { 
+    name: "Akachi Prince",
+    rating: 5,
+    price: 700,
+    currency: "USD",
+    duration: '5 days',
+    country: { name: "Ghana", code: "GH" }, 
+    image: reviewImg1,
+    text: `I had a great experience working with this seller on my full-stack website project. They understood my requirements clearly and delivered exactly what I was looking for.`,
+    expanded: false,
+    time: '1 month ago',
+  },
+  { 
+    name: "Sarah Jenkins",
+    rating: 4.5,
+    price: 1350,
+    currency: "USD",
+    duration: '4 weeks',
+    country: { name: "United States", code: "US" }, 
+    image: reviewImg2,
+    text: `Building a website for my new carpentry business felt like a massive project, but this four-section setup made it so straightforward.`,
+    expanded: false,
+    time: '1 week ago',
+  },
+  { 
+    name: "Marcus Thorne",
+    rating: 5,
+    price: 1100,
+    currency: "GBP",
+    duration: '2 weeks',
+    country: { name: "United Kingdom", code: "GB" }, 
+    text: `Smooth and professional experience. The seller designed a clean “Book an Appointment” section that matches our website style perfectly.`,
+    expanded: false,
+    time: '3 weeks ago',
+  },
+  { 
+    name: "Erik Frel",
+    rating: 5,
+    price: 800,
+    currency: "USD",
+    duration: '2 weeks',
+    country: { name: "United States", code: "US" }, 
+    image: reviewImg4,
+    text: `Outstanding attention to detail. I needed a specific animation style for my portfolio and Cassius delivered exactly that using Framer Motion.`,
+    expanded: false,
+    time: '2 months ago',
+  },
+  { 
+    name: "Chloe Sutherland",
+    rating: 5,
+    price: 2500,
+    currency: "AUD",
+    duration: '6 weeks',
+    country: { name: "Australia", code: "AU" }, 
+    image: reviewImg5,
+    text: `The e-commerce solution provided was top-tier. Integrating Shopify with a custom Next.js frontend has significantly improved our conversion rates.`,
+    expanded: false,
+    time: '4 days ago',
+  },
+  { 
+    name: "David Miller",
+    rating: 4.5,
+    price: 1500,
+    currency: "USD",
+    duration: '4 weeks',
+    country: { name: "United States", code: "US" }, 
+    image: reviewImg6,
+    text: `Very satisfied with the SaaS dashboard. The data visualization tools are intuitive and the dark mode toggle was a great addition.`,
+    expanded: false,
+    time: '2 weeks ago',
+  },
+  { 
+    name: "Liam O'Connor",
+    rating: 5,
+    price: 900,
+    currency: "AUD",
+    duration: '1 week',
+    country: { name: "Australia", code: "AU" }, 
+    text: `Quick turnaround and excellent quality. I needed a landing page for a flash sale and it was up and running in just a few days.`,
+    expanded: false,
+    time: '5 days ago',
+  },
+  { 
+    name: "Vikram Shah",
+    rating: 5,
+    price: 3200,
+    currency: "USD",
+    duration: '8 weeks',
+    country: { name: "India", code: "IN" }, 
+    image: reviewImg8,
+    text: `He managed a very complex database migration for our platform while redesigning the entire UI. The final product is robust and incredibly fast.`,
+    expanded: false,
+    time: '3 months ago',
   }
 ];
