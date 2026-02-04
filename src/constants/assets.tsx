@@ -23,8 +23,6 @@ import agencyAIImg from '../../public/images/projects/agency-ai-img.png';
 // Exports
 export const navLinks: string[] = ['Home', 'About', 'FAQ', 'Projects'];
 
-export const phoneNumber = '+234 907 557 5221';
-
 export const instagram_username: string = 'cassiussamuel.cezar';
 
 export const discord_username: string = 'cassiuscezar';
@@ -140,7 +138,6 @@ export const projects: Project[] = [
 export const socialLinks = {
   instagram: `https://instagram.com/${instagram_username}`,
   discord: discord_username,
-  phone: phoneNumber,
 };
 
 // Service packages (example structure)

@@ -15,7 +15,7 @@ const AlternateContact = () => {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/2349075575221', '_blank', 'noopener,noreferrer');
+    window.open('https://wa.me/2349161152071', '_blank', 'noopener,noreferrer');
   }
 
   const handleLinkedInClick = () => {
