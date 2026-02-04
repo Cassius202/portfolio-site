@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css'; // Import CSS here
 import { faTiktok, faDiscord, faInstagram, faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {

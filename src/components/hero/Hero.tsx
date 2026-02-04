@@ -4,14 +4,31 @@ import Background from "./Background";
 import HeroAnimation from "./HeroAnimation";
 import ProfileTag from "./ProfileTag";
 import EmailMe from "./EmailMe";
+import ParticlesComponent from "@/app/reviews/Particles";
+
+import { useState, useEffect } from "react";
+import { cn } from "@/utils/cn";
 
 const Hero = () => {
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleParticleHide = () => {
+      setScrolled(window.scrollY > window.innerHeight / 2);
+    }
+    window.addEventListener('scroll', handleParticleHide);
+
+    return () => window.removeEventListener("scroll", handleParticleHide)
+  },[])
+
   return (
-    <section id='home' className="relative min-h-screen w-full">
+    <section id='home' className="relative min-h-screen w-full h-max overflow-hidden">
       <Background />
       {/* main content  */}
-      
-      <div className="lg:grid grid-cols-[70%_28%] items-center max-w-full pt-28 xl:px-20 xl:pb-10">
+      <span className={cn("opacity-0 dark:opacity-50 pointer-events-none -z-20 overflow-hidden", scrolled && 'hidden')}>
+        <ParticlesComponent id="hero-particle" />
+      </span> 
+      <div className="relative z-40 lg:grid grid-cols-[70%_28%] items-center max-w-full pt-28 xl:px-20 xl:pb-10">
         
         <div className="w-full relative z-10 flex flex-col items-center lg:items-start mb-5"
         >

@@ -2,9 +2,9 @@
 
 import dynamic from 'next/dynamic';
 import Hero from "@/components/hero/Hero";
-import Footer from "@/components/Footer";
 import TechStack from '@/components/Contact/TechStack';
 import Projects from '@/components/Projects/Projects';
+import EnhancedGrid from '@/components/GridEffect';
 
 const Contact = dynamic(() => import("@/components/Contact/Contact"), {
   ssr: false,
@@ -21,7 +21,8 @@ const Questions = dynamic(() => import("@/components/question/Questions"), {
 export default function Home() {
 
   return (
-    <div className="flex overflow-x-hidden flex-col min-h-screen w-screen bg-zinc-50 font-sans dark:bg-zinc-950">
+    <div className="flex overflow-x-hidden isolate flex-col bg-zinc-50 font-sans dark:bg-zinc-950 min-h-screen w-screen ">
+      <EnhancedGrid />
       <Hero />
       <TechStack />
       <Contact />

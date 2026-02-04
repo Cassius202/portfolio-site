@@ -41,7 +41,7 @@ const Header = () => {
       animate={isVisible ? "visible" : "hidden"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={cn(
-        "fixed top-0 left-0 z-40 w-full flex justify-between items-center h-16 transition-colors duration-300 px-5 md:px-14 lg:px-24 border-b",
+        "fixed top-0 left-0 z-100 cursor-pointer w-full flex justify-between items-center h-16 transition-colors duration-300 px-5 md:px-14 lg:px-24 border-b",
         isScrolled 
           ? "bg-white/70 dark:bg-slate-950/70 backdrop-blur-md border-blue-500/20 shadow-sm" 
           : "bg-transparent border-transparent",

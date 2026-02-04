@@ -40,6 +40,7 @@ export const navLinks: string[] = ['Home', 'Reviews', 'FAQ', 'Projects'];
 export const instagram_username: string = 'cassiussamuel.cezar';
 
 export const discord_username: string = 'cassiuscezar';
+export const tiktok_username: string = "lordcezar7";
 
 export const questions: Questions[] = [
   {
@@ -213,7 +214,7 @@ export const Reviews: ReviewCard[] = [
     time: '1 month ago',
   },
   { 
-    name: "Sarah Jenkins",
+    name: "Tyler McCarthy",
     rating: 4.5,
     price: 1350,
     currency: "USD",

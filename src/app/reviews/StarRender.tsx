@@ -9,7 +9,8 @@ const Rounder = (number: number, i:number = 1):number => {
   return Math.round(workVal) * i;
 };
 
-const StarRender = ({rating} : {rating: number}) => {
+const StarRender = ({rating, colored} : {rating: number, colored: boolean}) => {
+  const iconColor : string = colored ? "text-amber-500" : 'text-inherit'
   const starNum = Number(rating);
   const starExtra = Rounder(starNum , 0.5) - Math.floor(starNum)
   return (
@@ -22,7 +23,7 @@ const StarRender = ({rating} : {rating: number}) => {
             <FaStar
               key={index}
               size={15}
-              className="text-amber-500"
+              className={iconColor}
             />
           );
         }
@@ -31,9 +32,9 @@ const StarRender = ({rating} : {rating: number}) => {
   }
   {
     starExtra === 0.5 ? (
-      <FaStarHalfAlt size={15} className="text-amber-500" />
+      <FaStarHalfAlt size={15} className={iconColor} />
     ) : starExtra === 1 ? (
-      <FaStar size={15} className="text-amber-500" />
+      <FaStar size={15} className={iconColor} />
     ) : null
   }
   </div>

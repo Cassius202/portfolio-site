@@ -68,7 +68,7 @@ const SideBar = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "fixed inset-0 z-50 w-screen max-w-screen backdrop-blur-[3px] bg-black/20 transition-[width_colors]"
+            "fixed inset-0 z-200 w-screen max-w-screen backdrop-blur-[3px] bg-black/20 transition-[width_colors]"
           )}
           onClick={() => close()}
         >
