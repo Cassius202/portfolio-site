@@ -12,7 +12,7 @@ const interSans = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-site-your-name.vercel.app"),
+  metadataBase: new URL("https://cassius-samuel-dev.vercel.app"),
   title: "Cassius Portfolio Website",
   description: "Let Cassius convert your ideas into a beautiful, high converting website",
   openGraph: {
