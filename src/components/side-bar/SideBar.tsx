@@ -3,7 +3,7 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import { useSidebarStore } from '@/store/useSidebarStore'
-import { ChevronsLeft, SidebarClose } from 'lucide-react'
+import { SidebarClose } from 'lucide-react'
 import { cn } from '@/utils/cn'
 import ThemeToggle from '@/contexts/use-theme'
 import { useTheme } from 'next-themes'
@@ -20,7 +20,6 @@ const SideBar = () => {
   const router = useRouter();
   const isHomePage = pathname === '/';
   
-  // Fix: Use useMediaQuery hook properly
   const [sm, setSm] = useState(false);
 
   useEffect(() => {
@@ -37,26 +36,23 @@ const SideBar = () => {
     e.preventDefault();
     const sectionId = link.toLowerCase();
     
-    // Close sidebar first
     close();
     
     if (isHomePage) {
-      // Already on home page, just scroll
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 300); // Wait for sidebar close animation
+      }, 300);
     } else {
-      // Navigate to home page, then scroll
       router.push('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 400); // Wait for navigation + sidebar close
+      }, 400);
     }
   };
 
@@ -78,10 +74,10 @@ const SideBar = () => {
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 20 }}
             ref={sidebarRef}
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside sidebar
+            onClick={(e) => e.stopPropagation()}
             className={cn(
               "dark:bg-zinc-900 py-8 bg-zinc-100 fixed dark:dark-gradient right-0 transition-colors duration-400 pb-20 top-0 rounded-l-2xl z-50 h-screen",
-              sm ? "w-62" : "w-85" // Use Tailwind classes or explicit values
+              sm ? "w-62" : "w-85"
             )}
           >
             <span 
@@ -95,15 +91,16 @@ const SideBar = () => {
             <nav className={cn("pt-16 h-full flex flex-col pb-8", sm ? 'px-6' : 'px-10')}>
               <menu className="flex flex-col gap-y-8">
                 {navLinks.map((link, index) => {
+                  // Style defined here to ensure the Link fills the space
+                  const linkStyles = "block w-full p-2 px-4 rounded-xl transition-colors text-slate-900 text-lg bg-slate-300 dark:bg-blue-950/40 hover:bg-blue-200 dark:text-slate-50 dark:hover:bg-slate-600";
+                  
                   return (
-                    <li
-                      key={index}
-                      className="group cursor-pointer text-slate-900 text-lg relative bg-slate-300 dark:bg-blue-950/40 hover:bg-blue-200 dark:text-slate-50 dark:hover:bg-slate-600 p-2 px-4 rounded-xl transition-colors"
-                    >
+                    <li key={index} className="group cursor-pointer relative">
                       {link === 'Reviews' ? (
                         <Link 
                           href="/reviews" 
                           onClick={() => close()}
+                          className={linkStyles}
                         >
                           {link}
                         </Link>
@@ -111,6 +108,7 @@ const SideBar = () => {
                         <Link 
                           href={`/#${link.toLowerCase()}`}
                           onClick={(e) => handleClick(e, link)}
+                          className={linkStyles}
                         >
                           {link}
                         </Link>
